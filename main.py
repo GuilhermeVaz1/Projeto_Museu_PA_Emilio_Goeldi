@@ -10,7 +10,7 @@ def interpolate(x, in_min, in_max, out_min, out_max):
     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 
 
-df = pd.read_csv("tabela.csv", sep=";")
+df = pd.read_csv("C:/Users/23300037/Downloads/Projeto_Museu_PA_Emilio_Goeldi/tabela.csv", sep=";")
 
 st.header('Mapa')
 map = df[['decimalLatitude', 'decimalLongitude']]
@@ -99,7 +99,7 @@ with st.expander('Por mês e pesquisadores'):
         fig, ax = plt.subplots()
         ax.barh(df03['name'], df03['count'])
         for xy in zip(df03['count'], df03['name']):                                       # <--
-            ax.annotate(f'({xy[0]:.0f})', xy=xy, textcoords='data', fontsize=4)
+            ax.annotate(f'{xy[0]:.0f}', xy=xy, textcoords='data', fontsize=4)
         ax.set_xlabel('Número de ocorrências')
         ax.set_ylabel('Pesquisadores')
         st.pyplot(fig)
